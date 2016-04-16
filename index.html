@@ -1,0 +1,42 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <script>
+      function goToPage() {
+        var a;
+        var b;
+        var b_pattern=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/;
+        b = document.form.pswd.value;
+        a = document.form.login.value;
+        var testb=b_pattern.test(b);
+        if (a.length > 15) {
+          alert("Enter less then 16 symbols");
+        } else if (a.length < 3) {
+          alert("Enter more then 2 symbols");
+        } else if (b.length == "") {
+          alert("Password can not be empty");
+        } else if (b.length < 8) {
+          alert("Password must have more then 8 symbols");
+        } else if (testb == false) {
+          alert("Your password must have big letter and consist with symbols and numbers");
+        } else document.location.href = "main.html";
+        
+      }
+
+    </script>
+  </head>
+
+  <body class="main">
+    <form method="POST" name="form">
+      <label for="login">Login:</label>
+      <input type="text" id="login" name="login" />
+      <label for="pswd">Password:</label>
+      <input type="password" id="pswd" name="pswd" />
+      <input type="button" value="Let's go" onClick="goToPage()" />
+      <input type="reset" value="reset" />
+  </body>
+
+</html>
